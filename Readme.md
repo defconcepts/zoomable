@@ -1,6 +1,6 @@
 # zoomable
 
-Super simple pinch zooming for DOM elements!
+Super simple pinch zooming for DOM elements on devices!
 
 At less than a kilobyte zoomable enables you to pinch zoom DOM elements on devices by just adding a couple of attributes to your elements.
 
@@ -16,7 +16,6 @@ For example,
 ```html
   <div zoomable zoom-scale="0.1"> My zoomable element </div>
 ```
-
 
 
 ## license
