@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>draggable | move DOM elements easily</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0">
+  <meta name="description" content="simple draggable elements">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <style>
+    body {
+    	padding: 20px;
+    	background-color: #ECF0f1;
+    }
+    .myZoom, .myBabyZoom {
+    	height: 200px;
+    	width: 200px;
+    	border-radius: 100px;
+    	border: 2px solid #333;
+    	background-color: #e74c3c;
+    	margin: 30px auto;
+    }
+    .myBabyZoom {
+    	top: 500px;
+    	background-color: #3498DB;
+    }
+    .code-snippet pre {
+    	margin: 10px auto;
+    	max-width: 370px;
+    	text-align: left;
+    	background-color: #474747;
+    	color: #fff;
+    }
+    code > span {
+    	display: block;
+    }
+    .lead {
+    	margin: 20px 0px 10px 0px;
+    }
+    code {
+    	color: #9400d3;
+    }
+    p, ul {
+    	max-width: 370px;
+    	margin: 0 auto;
+    }
+    ul {
+    	list-style-type: decimal;
+    }
+  </style>
+  <h1 class="text-center">Zoomable!</h1>
+  <h3 class="text-center">pinch zooming for DOM elements made simple</h3>
+  <div class="code-snippet">
+    <pre><code>&lt;div zoomable zoom-scale=&quot;0.1&quot;&gt;&lt;/div&gt;</code></pre>
+  </div>
+  <div name="timer" class="code-snippet hide"></div>
+  <p class="text-center">Here are two example zoomable divs that will simply scale on gesture at varying rates as defined by their <code>zoom-scale</code> attribute.</p>
+  <div zoomable zoom-scale="0.1" class="myZoom"></div>
+  <ul>
+    <li>Simply drop <code>zoomable.min.js</code> into your page (under a kilobyte)</li>
+    <li>Define <code>zoomable</code> and <code>zoom-scale</code> attributes for your elements.</li>
+  </ul>
+  <div zoomable zoom-scale="0.01" class="myBabyZoom"></div>
+  <script src="js/zoomable.js"></script>
+  <footer class="text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <iframe src="http://ghbtns.com/github-btn.html?user=jh3y&amp;repo=zoomable&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="20"></iframe>
+          <iframe src="http://ghbtns.com/github-btn.html?user=jh3y&amp;repo=zoomable&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="20"></iframe>
+          <iframe src="http://ghbtns.com/github-btn.html?user=jh3y&amp;repo=zoomable&amp;type=follow&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="120px" height="20"></iframe>
+        </div>
+      </div>
+  </footer>
+</body>
