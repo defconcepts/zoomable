@@ -1,0 +1,26 @@
+extends layout-blocks/layout
+block content
+	style.
+		.myZoom,
+		.myBabyZoom {
+			height: 200px;
+			width: 200px;
+			border-radius: 100px;
+			border: 1px solid #333;
+			background-color: red;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: -100px;
+		}
+		.myBabyZoom {
+			top: 500px;
+			background-color: black;
+		}
+	h1.text-center zoomable
+	p.
+		Here is an example of a zoomable div that will simply scale on gesture.
+	.myZoom(zoomable, zoom-scale="0.1")
+	.myBabyZoom(zoomable, zoom-scale="0.01")
+	script(src="js/zoomable.js")
