@@ -1,7 +1,7 @@
 {
-  "name": "draggable",
-  "version": "0.0.1",
-  "description": "a basic implementation for draggable elements",
+  "name": "zoomable",
+  "version": "1.0.0",
+  "description": "pinch zooming for elements on mobile devices made simple",
   "devDependencies": {
     "gulp": "^3.8.8",
     "gulp-coffee": "^2.2.0",
