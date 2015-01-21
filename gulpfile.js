@@ -8,13 +8,15 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	deploy = require('gulp-gh-pages'),
 	filter = require('gulp-filter'),
+	size = require('gulp-size'),
 	sources = {
 		coffee: "src/coffee/**/*.coffee",
 		jade: 'src/jade/**/*.jade',
 		docs: "src/jade/*.jade",
 		overwatch: "./out/**/*.*",
 		license: 'src/license/*.txt',
-		build: 'out/js/*.js'
+		build: 'out/js/*.js',
+		dist: 'dist/**/*.*'
 	},
 	destinations = {
 		js: './out/js/',
@@ -72,6 +74,14 @@ gulp.task('build', ['jade:compile', 'coffee:compile']);
 gulp.task('deploy', ['build'], function () {
 	return gulp.src("out/**/*.*")
 	.pipe(deploy());
+});
+
+gulp.task('stats', function(event) {
+	return gulp.src(sources.dist)
+	.pipe(size({
+		showFiles: true
+	}))
+	.pipe(gulp.dest(destinations.dist));
 });
 
 gulp.task('default', ["serve", "jade:watch", "coffee:watch"]);

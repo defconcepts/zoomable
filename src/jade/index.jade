@@ -8,6 +8,7 @@ block content
 		.myZoom, .myBabyZoom {
 			height: 200px;
 			width: 200px;
+			min-width: 75px;
 			border-radius: 100px;
 			border: 2px solid #333;
 			background-color: #e74c3c;
@@ -41,19 +42,20 @@ block content
 		}
 		ul {
 			list-style-type: decimal;
+			margin: 10px auto 30px auto;
 		}
 	h1.text-center Zoomable!
 	h3.text-center pinch zooming for DOM elements made simple
 	.code-snippet
 		pre
 			code
-				&lt;div zoomable zoom-scale=&quot;0.1&quot;&gt;&lt;/div&gt;
+				&lt;div zoomable zoom-rate=&quot;0.1&quot;&gt;&lt;/div&gt;
 	.code-snippet.hide(name = "timer")
+	#log
 	p.text-center.
-		Here are two example zoomable divs that will simply scale on gesture at varying rates as defined by their <code>zoom-scale</code> attribute.
-	.myZoom(zoomable, zoom-scale="0.1")
+		This circular div will scale on gesture at rates defined by the <code>zoom-rate</code> attribute.
+	.myZoom(zoomable, zoom-rate="0.1")
 	ul
-		li Simply drop <code>zoomable.min.js</code> into your page (under a kilobyte)
-		li Define <code>zoomable</code> and <code>zoom-scale</code> attributes for your elements.
-	.myBabyZoom(zoomable, zoom-scale="0.01")
+		li Simply drop <code>zoomable.min.js</code> into your page.
+		li Define <code>zoomable</code> and <code>zoom-rate</code> attributes for your elements.
 	script(src="js/zoomable.js")
