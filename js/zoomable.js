@@ -21,21 +21,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     this.element = element;
     newZoom = this;
-    newZoom.scale = parseFloat(newZoom.element.getAttribute('zoom-scale'));
+    newZoom._ll = parseFloat(newZoom.element.getAttribute('lower-limit') || 0.5);
+    newZoom._tl = parseFloat(newZoom.element.getAttribute('top-limit') || 2.0);
+    newZoom.scale = parseFloat(newZoom.element.getAttribute('zoom-rate'));
     newZoom._scale = 1.00;
     zoom = function(e) {
-      var diff, oldDist;
+      var oldDist;
       if (e.touches && e.touches.length === 2) {
         e.preventDefault();
         oldDist = newZoom.dist;
         newZoom.dist = Math.sqrt((e.touches[0].clientX - e.touches[1].clientX) * (e.touches[0].clientX - e.touches[1].clientX) + (e.touches[0].clientY - e.touches[1].clientY) * (e.touches[0].clientY - e.touches[1].clientY));
-        diff = newZoom.dist - oldDist;
         if (newZoom.dist < oldDist) {
           newZoom._scale = newZoom._scale - newZoom.scale;
         } else if (newZoom.dist > oldDist) {
           newZoom._scale = newZoom._scale + newZoom.scale;
         }
-        return newZoom.element.setAttribute('style', '-webkit-transform: scale(' + newZoom._scale + '); transform: scale(' + newZoom._scale + ');');
+        if (newZoom._scale > newZoom._ll && newZoom._scale < newZoom._tl) {
+          return newZoom.element.setAttribute('style', '-webkit-transform: scale(' + newZoom._scale + '); transform: scale(' + newZoom._scale + ');');
+        }
       }
     };
     startZoom = function(e) {
